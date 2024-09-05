@@ -7,10 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#B8D23B",
+        secondary: "#F7C322",
+        "light-green": "#75D23B",
+        "accent-green": "#43D23B",
+        "accent-green-2": "#75D23B",
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        banner: "url('/public/images/banner.webp')",
+        banner2: "url(/public/images/banner2.webp)",
+      },
+      boxShadow: {
+        "dark" : "0px 4px 4px 0px #00000040",
+        "slip": "0px 4px 8px 0px #00000040"
       },
     },
   },

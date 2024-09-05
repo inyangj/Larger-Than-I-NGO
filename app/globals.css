@@ -2,32 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+
+
+.banner {
+    background-image: url(../public/images/banner.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+}
+.banner2 {
+    background-image: url(../public/images/banner2.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+}
+.banner3 {
+    background-image: url(../public/images/img3.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.slick-dots li button:before {
+  font-size: 18px;
+  color: #545454; 
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.slick-dots li.slick-active button:before {
+  color: #F7C322; 
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+.slick-prev, .slick-next {
+  color: #F7C322; 
 }
+
+/* .slick-slide {
+  margin-right: 30px; 
+}
+
+.slick-prev {
+  left: -40px; 
+}
+
+.slick-next {
+  right: -40px; 
+} */
