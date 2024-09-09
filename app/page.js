@@ -1,10 +1,12 @@
 import Image from "next/image";
-import Nav from "@/app/component/section/Nav"; // Adjust the path according to your project structure
+import Nav from "@/app/component/section/Nav"; 
 import { donate, volunteer, sponsor } from "@/public/icons";
 import { img1, img2, img3, img4, img5, img6, img7, banner2  } from "@/public/images";
 import {events} from "@/app/component/section/dummy"
 import Button from "./component/element/Button";
 import EventCarousel from "./component/section/Carousel";
+import Link from "next/link";
+import HomeAbout from "./component/section/HomeAbout";
 
 const Home = () => {
 
@@ -22,12 +24,12 @@ const Home = () => {
               Caring for children with special needs
             </h1>
             <div className="mt-7 flex flex-col md:flex-row gap-6 pb-44 justify-center items-center">
-              <Button className={`bg-primary hover:bg-opacity-70 `}>
-                About Us
-              </Button>
-              <Button className={`bg-secondary hover:bg-opacity-70  `}>
-                About Us
-              </Button>
+              <Link href="/about">
+                <Button className={`bg-primary  `}>About Us</Button>
+              </Link>
+              <Link href="/contact">
+                <Button className={`bg-secondary`}>Contact Us</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -116,41 +118,13 @@ const Home = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="flex flex-col pb-14 md:pb-20 lg:pt-16 mt-[160px] md:mt-[178px] px-8 md:px-[100px] lg:px-36 lg:flex-row justify-center items-center lg:justify-between space-y-16 md:space-y-24 lg:space-y-0 lg:gap-10 xl:gap-20 lg:bg-[#FFF7DD] ">
-        <div className="lg:w-1/2 space-y-4">
-          <h2 className="text-3xl font-bold text-center lg:text-left">
-            About Us
-          </h2>
-          <p className="text-gray-600 text-center lg:text-left">
-            Dorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-            nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-            tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-            feugiat lectus. Class aptent taciti sociosqu ad litora
-          </p>
-          <div className="space-y-4 md:space-y-0 md:space-x-2 flex flex-col md:flex-row justify-center items-center lg:justify-start">
-            <Button className={` bg-secondary hover:bg-opacity-70`}>
-              See More
-            </Button>
-            <Button className={` bg-primary hover:bg-opacity-70`}>
-              Contact Us
-            </Button>
-          </div>
-        </div>
-        <div className="lg:w-1/2 mt-6 md:mt-0 ">
-          <Image
-            src={img1}
-            alt="About Us"
-            // width={500}
-            // height={300}
-            className=""
-            priority
-          />
-        </div>
-      </section>
+      <HomeAbout />
 
       {/* Donation Section */}
-      <section className="relative banner2 text-white text-center py-20 xl:pt-56 xl:pb-32 ">
+      <section
+        id="donate-button"
+        className="relative banner2 text-white text-center py-20 xl:pt-56 xl:pb-32 "
+      >
         <div className="absolute inset-0 bg-black opacity-60 -z-20"></div>
         <div className="relative z-10 space-y-4 px-10">
           <h2 className="text-3xl lg:text-5xl font-bold">
@@ -159,7 +133,7 @@ const Home = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           <Button
             className={`bg-secondary hover:bg-opacity-50`}
-            id={"donate-button"}
+  
           >
             Donate
           </Button>

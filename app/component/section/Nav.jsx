@@ -1,30 +1,55 @@
 "use client";
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { menu, close, logo } from "@/public/icons";
 
 const Nav = () => {
   const [showSideNav, setShowSideNav] = useState(false);
+  const [redirectToDonate, setRedirectToDonate] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const toggleSideNav = () => {
     setShowSideNav((prev) => !prev);
   };
 
-  const scrollToDonate = (e) => {
-    e.preventDefault();
+ const scrollToDonate = (e) => {
+   e.preventDefault();
 
-    if (showSideNav) toggleSideNav();
+   if (showSideNav) toggleSideNav();
 
-    if (typeof window !== "undefined") {
-      const donateButton = document.getElementById("donate-button");
-      if (donateButton) {
-        donateButton.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
+   if (typeof window !== "undefined") {
+     const donateButton = document.getElementById("donate-button");
+
+     if (!donateButton) {
+       setRedirectToDonate(true);
+       router.push("/"); 
+     } else {
+      
+       donateButton.scrollIntoView({ behavior: "smooth" });
+     }
+   }
+ };
+
+ useEffect(() => {
+   if (redirectToDonate) {
+     const checkDonateButton = () => {
+       const homeDonateButton = document.getElementById("donate-button");
+
+       if (homeDonateButton) {
+         homeDonateButton.scrollIntoView({ behavior: "smooth" });
+       } else {
+         
+         requestAnimationFrame(checkDonateButton);
+       }
+     };
+
+     
+     checkDonateButton();
+   }
+ }, [redirectToDonate]);
 
   const isEventRoute = pathname.startsWith("/events");
 

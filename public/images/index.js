@@ -7,6 +7,8 @@ import img4 from "./img4.webp";
 import img5 from "./img5.webp";
 import img6 from "./img6.webp";
 import img7 from "./img7.webp";
+import design1 from "./design1.webp";
+import design2 from "./design2.webp";
 import betty from "./betty.png";
 import chiefson from "./chiefson.png";
 import dokun from "./dokun.png";
@@ -18,4 +20,4 @@ import izontimi from "./izontimi.png";
 import kemi from "./kemi.png";
 import member from "./member.png";
 
-export {banner, banner2, img1, img2, img3, img4, img5, img6, img7, betty, chiefson, dokun, doubra, elizabeth, favour, fidelia, izontimi, kemi, member};
+export {banner, banner2, img1, img2, img3, img4, img5, img6, img7, betty, chiefson, dokun, doubra, elizabeth, favour, fidelia, izontimi, kemi, member, design1, design2};

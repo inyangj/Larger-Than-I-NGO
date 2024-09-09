@@ -1,9 +1,45 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {location, phone, mail} from "@/public/icons"
 
 const Footer = () => {
+    const [redirectToDonate, setRedirectToDonate] = useState(false);
+    const router = useRouter();
+   const scrollToDonate = (e) => {
+     e.preventDefault();
+
+   
+
+     if (typeof window !== "undefined") {
+       const donateButton = document.getElementById("donate-button");
+
+       if (!donateButton) {
+         setRedirectToDonate(true);
+         router.push("/");
+       } else {
+         donateButton.scrollIntoView({ behavior: "smooth" });
+       }
+     }
+   };
+
+   useEffect(() => {
+     if (redirectToDonate) {
+       const checkDonateButton = () => {
+         const homeDonateButton = document.getElementById("donate-button");
+
+         if (homeDonateButton) {
+           homeDonateButton.scrollIntoView({ behavior: "smooth" });
+         } else {
+           requestAnimationFrame(checkDonateButton);
+         }
+       };
+
+       checkDonateButton();
+     }
+   }, [redirectToDonate]);
   return (
     <footer className="bg-black text-[#D8D5D5] py-10 md:py-20 lg:py-16">
       <div className="container mx-auto px-4 md:px-14 lg:px-32 xl:px-36 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
@@ -32,8 +68,8 @@ const Footer = () => {
             <li className="hover:text-primary">
               <Link href="/about">About</Link>
             </li>
-            <li className="hover:text-primary">
-              <Link href="/donate">Donate</Link>
+            <li className={`hover:text-primary`} onClick={scrollToDonate}>
+              Donate
             </li>
             <li className="hover:text-primary">
               <Link href="/gallery">Gallery</Link>

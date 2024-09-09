@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import {img1, img5} from "@/public/images";
+import {design1, design2 } from "@/public/images";
 import Button from "@/app/component/element/Button";
 
 const AboutFoundation = () => {
   return (
-    <section className="py-16 relative bg-white lg:ml-20 lg:mr-16">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-60 md:gap-28 items-center">
+    <section id="donate-button" className="py-16 relative bg-white lg:ml-20 lg:mr-16">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-52 md:gap-28 items-center">
         <div className="grid justify-center gap-11 items-center px-4 md:mx-24 lg:mx-0 text-center lg:text-left">
           <h3 className="text-secondary font-black text-3xl ">
             About Our Foundation
@@ -22,26 +22,26 @@ const AboutFoundation = () => {
           vulputat
           <Button
             className="bg-secondary mx-auto lg:mx-0   w-fit"
-            id={"donate-button"}
+          
           >
             Donate
           </Button>
         </div>
-        <div className="relative mx-9 md:mx-[104px] lg:mx-0 ">
+        <div className="relative mx-7 md:mx-[104px] lg:mx-0 ">
           <div className=" absolute right-0">
             <Image
-              src={img1}
+              src={design1}
               alt="Foundation Image 1"
-              className="w-56 md:w-[400px] lg:w-56 xl:w-[400px]"
+              className="w-52 md:w-[300px] lg:w-52 xl:w-[300px]"
             />
           </div>
-          <div className="w-52 h-40 md:h-[264px]  md:w-[400px] lg:w-52 lg:h-40  bg-light-green absolute top-28 md:top-48 right-20 md:right-32 lg:top-28 lg:right-20 xl:h-[264px]  xl:w-[400px] xl:top-48 xl:right-32 "></div>
-          <div className="w-52 h-72 md:h-[488px] lg:h-72 xl:h-[488px] "></div>
-          <div className=" absolute right-24 bottom-0 md:right-36 lg:right-24 xl:right-36">
+          <div className="w-48 h-64 md:h-[400px]  md:w-[285px] lg:w-48 lg:h-64  bg-light-green absolute top-28 md:top-40 right-36 md:right-[213px] lg:top-28 lg:right-36 xl:h-[400px]  xl:w-[285px] xl:top-40 xl:right-[213px] "></div>
+          <div className="w-52 h-[384px] md:h-[580px] lg:h-[399px] xl:h-[580px] "></div>
+          <div className=" absolute right-40 bottom-0 md:right-[236px] lg:right-[156px] xl:right-[236px]">
             <Image
-              src={img5}
+              src={design2}
               alt="Foundation Image 2"
-              className="w-64  md:w-[455px] lg:w-64  xl:w-[455px]"
+              className="w-52  md:w-[300px] lg:w-52 xl:w-[300px]"
             />
           </div>
         </div>

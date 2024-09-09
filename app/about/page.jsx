@@ -1,9 +1,9 @@
 import React from "react";
 import Nav from "../component/section/Nav";
-import WhatWeDo from "./component/WhatWeDo";
 import AboutFoundation from "./component/Foundation";
 import TeamSection from "./component/Team";
 import SponsorsSection from "./component/Sponsors";
+import TabbedSection from "./component/TabbedSecton";
 
 const AboutUs = () => {
   return (
@@ -20,7 +20,7 @@ const AboutUs = () => {
       </section>
 
       <section className="">
-        <WhatWeDo />
+        <TabbedSection />
       </section>
 
       <section>
