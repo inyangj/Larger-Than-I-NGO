@@ -1,9 +1,17 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import {design1, design2 } from "@/public/images";
 import Button from "@/app/component/element/Button";
 
 const AboutFoundation = () => {
+   const handleDonateClick = () => {
+     window.open(
+       "https://flutterwave.com/donate/amwwbhnwpjft",
+       "_blank",
+       "noopener,noreferrer"
+     );
+   };
   return (
     <section
       id="donate-button"
@@ -28,7 +36,7 @@ const AboutFoundation = () => {
           demands that work and related pressures can make on such persons. It
           was inaugurated on 26th September, 2014, with a program Themed: VOICE
           FOR THE VOICELESS.
-          <Button className="bg-secondary mx-auto lg:mx-0   w-fit">
+          <Button onClick={handleDonateClick} className="bg-secondary mx-auto lg:mx-0   w-fit">
             Donate
           </Button>
         </div>

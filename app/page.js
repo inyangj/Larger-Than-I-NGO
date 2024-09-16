@@ -20,6 +20,13 @@ const Home = () => {
         "noopener,noreferrer"
       );
     };
+    const handleDonateClick = () => {
+      window.open(
+        "https://flutterwave.com/donate/amwwbhnwpjft",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    };
 
   return (
     <div className="">
@@ -59,7 +66,7 @@ const Home = () => {
               Support our mission to bring hope and change lives through your
               generous donations.
             </p>
-            <Button
+            <Button  onClick={handleDonateClick}
               className={` shadow-dark lg:text-lg xl:text-xl bg-white font-light hover:bg-opacity-70 `}
             >
               Donate Now
@@ -144,7 +151,7 @@ const Home = () => {
             Make A Donation Today
           </h2>
           <p>You can support a child today.</p>
-          <Button className={`bg-secondary hover:bg-opacity-50`}>Donate</Button>
+          <Button onClick={handleDonateClick} className={`bg-secondary hover:bg-opacity-50`}>Donate</Button>
         </div>
       </section>
 
@@ -192,7 +199,7 @@ const Home = () => {
             cause? Do you want to make a positive impact o your community? We’re
             always looking for volunteers to help us
           </p>
-          <Button className={`bg-primary hover:bg-opacity-50`}>
+          <Button onClick={handleVolunteerClick} className={`bg-primary hover:bg-opacity-50`}>
             Volunteer
           </Button>
         </div>
