@@ -38,10 +38,11 @@ const AboutUs = () => {
               needs
             </h2>
             <p className="text-xl font-medium lg:w-[776px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-              ullamcorper venenatis felis, vitae aliquet nunc dignissim sit
-              amet. Duis finibus, lectus vel ultricies efficitur, odio tortor
-              aliquam lacus, et tincidunt arcu orci non nisl.
+              To ensure that children from age 0- 12 years with physical, mental
+              and sensory challenges overcome stigmatization and other unhealthy
+              socio- cultural beliefs that are inimical to their growth to live
+              up to their full potentials and be fully integrated into the
+              society.
             </p>
           </div>
         </div>
@@ -55,10 +56,10 @@ const AboutUs = () => {
             We make sure to have inclusive care for children with special needs
           </h2>
           <p className="text-xl font-medium lg:w-[776px] place-self-end">
-            Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis. Class
-            aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos.
+            To make available relevant resources and services, such as
+            adequate/early diagnosis, special health care provisions,
+            educational services and advocacy programmes, to meet the special
+            needs of children with challenges.
           </p>
         </div>
       </section>

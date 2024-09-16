@@ -5,7 +5,10 @@ import Button from "@/app/component/element/Button";
 
 const AboutFoundation = () => {
   return (
-    <section id="donate-button" className="py-16 relative bg-white lg:ml-20 lg:mr-16">
+    <section
+      id="donate-button"
+      className="py-16 relative bg-white lg:ml-20 lg:mr-16"
+    >
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-52 md:gap-28 items-center">
         <div className="grid justify-center gap-11 items-center px-4 md:mx-24 lg:mx-0 text-center lg:text-left">
           <h3 className="text-secondary font-black text-3xl ">
@@ -15,15 +18,17 @@ const AboutFoundation = () => {
             We Are On A Mission To Help Children
           </h2>
           <p className="">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
+            The Foundation is designed to reach out to mentally, physically,
+            behaviorally and sensory challenged people and their custodians.
           </p>
-          p Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputat
-          <Button
-            className="bg-secondary mx-auto lg:mx-0   w-fit"
-          
-          >
+          The Vision was born out of a desire to make life more meaningful for
+          children needing special care, and a passion to reach out to hurting,
+          confused and sometimes perplexed parents and guardians, of children
+          with mental and physical challenges in our world today, knowing the
+          demands that work and related pressures can make on such persons. It
+          was inaugurated on 26th September, 2014, with a program Themed: VOICE
+          FOR THE VOICELESS.
+          <Button className="bg-secondary mx-auto lg:mx-0   w-fit">
             Donate
           </Button>
         </div>

@@ -8,12 +8,21 @@ import { menu, close, logo } from "@/public/icons";
 const Nav = () => {
   const [showSideNav, setShowSideNav] = useState(false);
   const [redirectToDonate, setRedirectToDonate] = useState(false);
+    const [redirectToGallery, setRedirectToGallery] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
   const toggleSideNav = () => {
     setShowSideNav((prev) => !prev);
   };
+
+   const handleVolunteerClick = () => {
+     window.open(
+       "https://docs.google.com/forms/d/e/1FAIpQLSdULR-9XA1BY8E8xKZiqTfGANTIpTlGLX7fP0X7Moo5LD2CgA/viewform?usp=sf_link",
+       "_blank",
+       "noopener,noreferrer"
+     );
+   };
 
  const scrollToDonate = (e) => {
    e.preventDefault();
@@ -29,6 +38,23 @@ const Nav = () => {
      } else {
       
        donateButton.scrollIntoView({ behavior: "smooth" });
+     }
+   }
+ };
+
+ const scrollToGallery = (e) => {
+   e.preventDefault();
+
+   if (showSideNav) toggleSideNav();
+
+   if (typeof window !== "undefined") {
+     const gallerySection = document.getElementById("gallery-section");
+
+     if (!gallerySection) {
+       setRedirectToGallery(true);
+       router.push("/");
+     } else {
+       gallerySection.scrollIntoView({ behavior: "smooth" });
      }
    }
  };
@@ -51,13 +77,34 @@ const Nav = () => {
    }
  }, [redirectToDonate]);
 
+  useEffect(() => {
+    if (redirectToGallery) {
+      const checkGallerySection = () => {
+        const gallerySection = document.getElementById("gallery-section");
+
+        if (gallerySection) {
+          gallerySection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          requestAnimationFrame(checkGallerySection);
+        }
+      };
+
+      checkGallerySection();
+    }
+  }, [redirectToGallery]);
+
+  const handleClick = () => {
+    handleVolunteerClick();
+    toggleSideNav();
+  };
+
   const isEventRoute = pathname.startsWith("/events");
 
   return (
     <nav
-      className={`md:text-xl bg-black bg-opacity-50 ${
-        isEventRoute ? "md:px-9 px-4 lg:px-[100px]" : ""
-      }`}
+      className={`md:text-xl ${
+        pathname === "/" ? "" : "bg-black bg-opacity-50"
+      }  ${isEventRoute ? "md:px-9 px-4 lg:px-[100px]" : ""}`}
     >
       <div
         className={`flex justify-between items-center ${
@@ -86,12 +133,12 @@ const Nav = () => {
           <li className={`hover:text-primary`} onClick={scrollToDonate}>
             Donate
           </li>
-          <li
+          <li onClick={scrollToGallery}
             className={`hover:text-primary ${
               pathname === "/gallery" ? "text-primary" : ""
             }`}
           >
-            <Link href="/gallery">Gallery</Link>
+            Gallery
           </li>
           <li
             className={`hover:text-primary ${
@@ -104,8 +151,9 @@ const Nav = () => {
             className={`hover:text-primary ${
               pathname === "/contact" ? "text-primary" : ""
             }`}
+            onClick={handleVolunteerClick}
           >
-            <Link href="/contact">Contact</Link>
+            Contact
           </li>
         </ul>
 
@@ -159,14 +207,12 @@ const Nav = () => {
               <li className={`hover:text-primary`} onClick={scrollToDonate}>
                 Donate
               </li>
-              <li
+              <li onClick={scrollToGallery}
                 className={`hover:text-primary ${
                   pathname === "/gallery" ? "text-primary" : ""
                 }`}
               >
-                <Link href="/gallery" onClick={toggleSideNav}>
-                  Gallery
-                </Link>
+                Gallery
               </li>
               <li
                 className={`hover:text-primary ${
@@ -181,10 +227,9 @@ const Nav = () => {
                 className={`hover:text-primary ${
                   pathname === "/contact" ? "text-primary" : ""
                 }`}
+                onClick={ handleClick }
               >
-                <Link href="/contact" onClick={toggleSideNav}>
-                  Contact
-                </Link>
+                Contact
               </li>
             </ul>
           </div>

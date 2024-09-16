@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Nav from "@/app/component/section/Nav"; 
 import { donate, volunteer, sponsor } from "@/public/icons";
@@ -11,6 +12,14 @@ import HomeAbout from "./component/section/HomeAbout";
 const Home = () => {
 
    const galleryImages = [img2, img3, img2, img1, img5, img4, img5, img7];
+
+    const handleVolunteerClick = () => {
+      window.open(
+        "https://docs.google.com/forms/d/e/1FAIpQLSdULR-9XA1BY8E8xKZiqTfGANTIpTlGLX7fP0X7Moo5LD2CgA/viewform?usp=sf_link",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    };
 
   return (
     <div className="">
@@ -27,9 +36,10 @@ const Home = () => {
               <Link href="/about">
                 <Button className={`bg-primary  `}>About Us</Button>
               </Link>
-              <Link href="/contact">
-                <Button className={`bg-secondary`}>Contact Us</Button>
-              </Link>
+
+              <Button className={`bg-secondary`} onClick={handleVolunteerClick}>
+                Contact Us
+              </Button>
             </div>
           </div>
         </div>
@@ -46,10 +56,11 @@ const Home = () => {
           <div className="bg-accent-green-2 text-black p-6 shadow-lg">
             <h2 className="text-xl font-bold">Donate Money</h2>
             <p className="mt-4 mb-2 w-[218px] mx-auto lg:mx-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Support our mission to bring hope and change lives through your
+              generous donations.
             </p>
             <Button
-              className={` shadow-dark bg-white font-light hover:bg-opacity-70 `}
+              className={` shadow-dark lg:text-lg xl:text-xl bg-white font-light hover:bg-opacity-70 `}
             >
               Donate Now
             </Button>
@@ -57,10 +68,12 @@ const Home = () => {
           <div className="bg-primary text-black p-6 shadow-lg ">
             <h2 className="text-xl font-bold">Be a Volunteer</h2>
             <p className="mt-4 mb-2 w-[218px] mx-auto lg:mx-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Make a difference today! Join us as a volunteer and impact lives
+              positively.
             </p>
             <Button
-              className={` shadow-dark font-light bg-white hover:bg-opacity-70 `}
+              onClick={handleVolunteerClick}
+              className={` shadow-dark lg:text-lg xl:text-xl font-light bg-white hover:bg-opacity-70 `}
             >
               Be A Volunteer
             </Button>
@@ -82,8 +95,8 @@ const Home = () => {
             />
             <h3 className="mt-4 text-lg font-bold">Make Donation</h3>
             <p className="mt-2 text-gray-600">
-              Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis.
+              Your support can change lives. Make a donation today to help us
+              continue making a difference together!
             </p>
           </div>
           <div className="grid items-center justify-center">
@@ -96,8 +109,8 @@ const Home = () => {
             />
             <h3 className="mt-4 text-lg font-bold">Become A Volunteer</h3>
             <p className="mt-2 text-gray-600">
-              Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis.
+              Join our team of dedicated volunteers and make a lasting impact in
+              the lives of those in need.
             </p>
           </div>
           <div className="grid items-center justify-center">
@@ -110,8 +123,8 @@ const Home = () => {
             />
             <h3 className="mt-4 text-lg font-bold">Sponsorship</h3>
             <p className="mt-2 text-gray-600 ">
-              Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis.
+              Support our mission through sponsorship, empowering lives and
+              creating lasting change in communities in need.
             </p>
           </div>
         </div>
@@ -130,18 +143,16 @@ const Home = () => {
           <h2 className="text-3xl lg:text-5xl font-bold">
             Make A Donation Today
           </h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <Button
-            className={`bg-secondary hover:bg-opacity-50`}
-  
-          >
-            Donate
-          </Button>
+          <p>You can support a child today.</p>
+          <Button className={`bg-secondary hover:bg-opacity-50`}>Donate</Button>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="space-y-4 pt-36 md:pt-28 pb-16 md:pb-20">
+      <section
+        className="space-y-4 pt-36 md:pt-28 pb-16 md:pb-20"
+        id="gallery-section"
+      >
         <div className=" flex gap-4 items-center px-8 md:px-[73px] ">
           <div className="w-16 h-0 border-secondary border-2"></div>
           <h2 className="md:text-xl md:font-bold font-medium">Our Gallery</h2>
@@ -176,7 +187,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-black opacity-70 -z-20"></div>
         <div className="relative z-10 space-y-4 px-10">
           <h2 className="text-3xl lg:text-5xl font-bold">Want to Volunteer?</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>
+            Join Our team of dedicated Volunteers! Are you passionate about our
+            cause? Do you want to make a positive impact o your community? We’re
+            always looking for volunteers to help us
+          </p>
           <Button className={`bg-primary hover:bg-opacity-50`}>
             Volunteer
           </Button>
