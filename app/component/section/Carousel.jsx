@@ -1,32 +1,48 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import EventCard from "@/app/events/component/EventCard";
 
+import EventCardSkeleton from "./EventSkeleton";
 
 
-const EventCarousel = ({head, events}) => {
+
+const EventCarousel = ({ head, events = [], loading, error }) => {
+  if (loading)
+    return (
+      <div className="mt-8 mb-14 md:mb-28 grid md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-24 items-center">
+        <EventCardSkeleton />
+        <EventCardSkeleton />
+        <EventCardSkeleton />
+        <EventCardSkeleton />
+        <EventCardSkeleton />
+        <EventCardSkeleton />
+      </div>
+    );
+
+  if (error) return <p>Error: {error}</p>;
+
   const settings = {
     dots: true,
-    infinite: true,
-    autoplay: true,
+    infinite: events.length > 1,
+    autoplay: events.length > 1,
     arrows: true,
     swipeToSlide: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: Math.min(events.length, 3),
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: Math.min(events.length, 3),
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(events.length, 2),
           slidesToScroll: 1,
         },
       },
@@ -47,7 +63,6 @@ const EventCarousel = ({head, events}) => {
         {events.map((event, index) => (
           <div key={index} className="px-4 ">
             {" "}
-            
             <EventCard event={event} />
           </div>
         ))}

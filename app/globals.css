@@ -63,3 +63,7 @@ body {
 .slick-next {
   right: -40px; 
 } */
+
+.group:hover .transform {
+  transform: scale(1.1);
+}

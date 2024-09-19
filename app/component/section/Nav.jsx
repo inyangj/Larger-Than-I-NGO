@@ -115,40 +115,44 @@ const Nav = () => {
           <Image src={logo} alt="logo" width={100} height={100} />
         </div>
 
-        <ul className="hidden lg:flex items-center text-white gap-4">
+        <ul className="hidden lg:flex items-center  text-white gap-4">
           <li
-            className={`hover:text-primary ${
+            className={`hover:text-primary cursor-pointer ${
               pathname === "/" ? "text-primary" : ""
             }`}
           >
             <Link href="/">Home</Link>
           </li>
           <li
-            className={`hover:text-primary ${
+            className={`hover:text-primary cursor-pointer ${
               pathname === "/about" ? "text-primary" : ""
             }`}
           >
             <Link href="/about">About</Link>
           </li>
-          <li className={`hover:text-primary`} onClick={scrollToDonate}>
+          <li
+            className={`hover:text-primary cursor-pointer`}
+            onClick={scrollToDonate}
+          >
             Donate
           </li>
-          <li onClick={scrollToGallery}
-            className={`hover:text-primary ${
+          <li
+            onClick={scrollToGallery}
+            className={`hover:text-primary cursor-pointer ${
               pathname === "/gallery" ? "text-primary" : ""
             }`}
           >
             Gallery
           </li>
           <li
-            className={`hover:text-primary ${
+            className={`hover:text-primary cursor-pointer ${
               isEventRoute ? "text-primary" : ""
             }`}
           >
             <Link href="/events">Events</Link>
           </li>
           <li
-            className={`hover:text-primary ${
+            className={`hover:text-primary cursor-pointer ${
               pathname === "/contact" ? "text-primary" : ""
             }`}
             onClick={handleVolunteerClick}
@@ -168,11 +172,11 @@ const Nav = () => {
 
       {showSideNav && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black bg-opacity-90 z-40"
           onClick={toggleSideNav}
         >
           <div
-            className={`fixed top-0 right-0 w-80 h-full sm:w-96 z-50 ${
+            className={`fixed top-0 right-0 w-full h-full sm:w-96 z-50 ${
               isEventRoute ? "px-4" : "px-6"
             }  grid`}
             onClick={(e) => e.stopPropagation()}
@@ -207,7 +211,8 @@ const Nav = () => {
               <li className={`hover:text-primary`} onClick={scrollToDonate}>
                 Donate
               </li>
-              <li onClick={scrollToGallery}
+              <li
+                onClick={scrollToGallery}
                 className={`hover:text-primary ${
                   pathname === "/gallery" ? "text-primary" : ""
                 }`}
@@ -227,7 +232,7 @@ const Nav = () => {
                 className={`hover:text-primary ${
                   pathname === "/contact" ? "text-primary" : ""
                 }`}
-                onClick={ handleClick }
+                onClick={handleClick}
               >
                 Contact
               </li>

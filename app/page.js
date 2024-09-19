@@ -2,16 +2,28 @@
 import Image from "next/image";
 import Nav from "@/app/component/section/Nav"; 
 import { donate, volunteer, sponsor } from "@/public/icons";
-import { img1, img2, img3, img4, img5, img6, img7, banner2  } from "@/public/images";
-import {events} from "@/app/component/section/dummy"
+// import { img1, img2, img3, img4, img5, img6, img7, banner2  } from "@/public/images";
+import { fetchUpcomingEvents } from "@/utils/Fetch";
+import { useQuery } from "@tanstack/react-query";
 import Button from "./component/element/Button";
 import EventCarousel from "./component/section/Carousel";
 import Link from "next/link";
 import HomeAbout from "./component/section/HomeAbout";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import GallerySection from "./component/section/Gallery";
 
 const Home = () => {
+    const {
+      data: events,
+      error,
+      isLoading,
+    } = useQuery({
+      queryKey: ["up-events"],
+      queryFn: fetchUpcomingEvents,
+    });
 
-   const galleryImages = [img2, img3, img2, img1, img5, img4, img5, img7];
+  //  const galleryImages = [img2, img3, img2, img1, img5, img4, img5, img7];
 
     const handleVolunteerClick = () => {
       window.open(
@@ -156,7 +168,7 @@ const Home = () => {
       </section>
 
       {/* Gallery Section */}
-      <section
+      {/* <section
         className="space-y-4 pt-36 md:pt-28 pb-16 md:pb-20"
         id="gallery-section"
       >
@@ -180,13 +192,15 @@ const Home = () => {
             />
           ))}
         </div>
-      </section>
+
+      </section> */}
+        <GallerySection />
       <section className="px-4 py-8 md:px-14 lg:px-36">
         <div className=" flex gap-4 items-center justify-end mb-8">
           <h2 className="md:text-xl md:font-bold font-medium">Events</h2>
           <div className="w-16 h-0 border-secondary border-2"></div>
         </div>
-        <EventCarousel head={"Our Latest Events"} events={events} />
+        <EventCarousel head={"Our Latest Events"} events={events} loading={isLoading} error={error} />
       </section>
 
       {/* Volunteer Section */}

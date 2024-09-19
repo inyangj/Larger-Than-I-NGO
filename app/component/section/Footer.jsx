@@ -110,22 +110,31 @@ const Footer = () => {
           </h3>
           <div className="w-24 h-0  mb-6 border-secondary border"></div>
           <ul className="space-y-2">
-            <li className="hover:text-primary">
+            <li className="hover:text-primary cursor-pointer">
               <Link href="/">Home</Link>
             </li>
-            <li className="hover:text-primary">
+            <li className="hover:text-primary cursor-pointer">
               <Link href="/about">About</Link>
             </li>
-            <li className={`hover:text-primary`} onClick={scrollToDonate}>
+            <li
+              className={`hover:text-primary cursor-pointer`}
+              onClick={scrollToDonate}
+            >
               Donate
             </li>
-            <li className="hover:text-primary" onClick={scrollToGallery}>
+            <li
+              className="hover:text-primary cursor-pointer"
+              onClick={scrollToGallery}
+            >
               Gallery
             </li>
-            <li className="hover:text-primary">
+            <li className="hover:text-primary cursor-pointer">
               <Link href="/events">Events</Link>
             </li>
-            <li className="hover:text-primary" onClick={handleVolunteerClick}>
+            <li
+              className="hover:text-primary cursor-pointer"
+              onClick={handleVolunteerClick}
+            >
               Contact
             </li>
           </ul>

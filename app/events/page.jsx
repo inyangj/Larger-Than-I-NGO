@@ -1,10 +1,29 @@
-import React from 'react'
-import Link from 'next/link';
-import Nav from '../component/section/Nav'
-import { events, pasts } from '../component/section/dummy'; 
-import EventCarousel from '../component/section/Carousel';
+"use client";
+import React from "react";
+import Link from "next/link";
+import Nav from "../component/section/Nav";
+import { fetchPastEvents, fetchUpcomingEvents } from "@/utils/Fetch";
+import { useQuery } from "@tanstack/react-query";
+import EventCarousel from "../component/section/Carousel";
 
 const page = () => {
+  const {
+    data: events,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["coming-events"],
+    queryFn: fetchUpcomingEvents,
+  });
+
+  const {
+    data: pasts,
+    error: err,
+    isLoading: loading,
+  } = useQuery({
+    queryKey: ["past-events"],
+    queryFn: fetchPastEvents,
+  });
   return (
     <section>
       <Nav />
@@ -13,12 +32,10 @@ const page = () => {
         <div className="flex justify-between items-center">
           <h3 className="font-medium text-3xl">Upcoming Events</h3>
           <p className="text-light-green text-xl">
-            <Link href="/events/upcoming-events">
-              See All
-            </Link>
+            <Link href="/events/upcoming-events">See All</Link>
           </p>
         </div>
-        <EventCarousel events={events} />
+        <EventCarousel events={events} loading={isLoading} error={error} />
       </section>
 
       {/* Past Events */}
@@ -26,15 +43,13 @@ const page = () => {
         <div className="flex justify-between items-center">
           <h3 className="font-medium text-3xl">Past Events</h3>
           <p className="text-light-green text-xl">
-            <Link href="/events/past-events">
-              See All
-            </Link>
+            <Link href="/events/past-events">See All</Link>
           </p>
         </div>
-        <EventCarousel events={pasts} />
+        <EventCarousel events={pasts} loading={loading} error={err} />
       </section>
     </section>
   );
-}
+};
 
-export default page
+export default page;
