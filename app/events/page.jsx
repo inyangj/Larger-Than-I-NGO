@@ -6,7 +6,7 @@ import { fetchPastEvents, fetchUpcomingEvents } from "@/utils/Fetch";
 import { useQuery } from "@tanstack/react-query";
 import EventCarousel from "../component/section/Carousel";
 
-const page = () => {
+const Upcoming = () => {
   const {
     data: events,
     error,
@@ -52,4 +52,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Upcoming;
