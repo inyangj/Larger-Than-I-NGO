@@ -14,11 +14,16 @@ const EventCarousel = ({ head, events = [], loading, error }) => {
         <EventCardSkeleton />
         <EventCardSkeleton />
         <EventCardSkeleton />
-        <EventCardSkeleton />
-        <EventCardSkeleton />
-        <EventCardSkeleton />
       </div>
     );
+
+      if (events.length === 0) {
+        return (
+          <div className="container mx-auto text-center py-16">
+            <h2 className="text-3xl md:text-5xl">No events yet</h2>
+          </div>
+        );
+      }
 
   if (error) return <p>Error: {error}</p>;
 

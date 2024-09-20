@@ -21,3 +21,10 @@ export const fetchIndividualEvent = (eventId) => {
     return response.data.doc;
   };
 };
+
+// Function to fetch Gallery Images
+
+export const fetchImages = async () => {
+  const response = await axios.get("/images");
+  return Array.isArray(response.data.doc) ? response.data.doc : [];
+};

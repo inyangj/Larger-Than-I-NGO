@@ -178,7 +178,7 @@ const Footer = () => {
                 height={24}
                 className="mr-2"
               />
-              <span>example@example.com</span>
+              <span>Largerthanifoundation@gmail.com</span>
             </li>
           </ul>
         </div>
