@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {arise, tvc, nta, rhythm, down, sterling, glory, svcc, fed, uni} from "@/public/icons"
+import {arise, tvc, nta, rhythm, down, sterling, glory, svcc, fed, uni, light} from "@/public/icons"
 
 const sponsors = [
   { src: arise, alt: "Arise News" },
@@ -13,6 +13,7 @@ const sponsors = [
   { src: glory, alt: "Glory FM" },
   { src: fed, alt: "Medical" },
   { src: svcc, alt: "SVCC" },
+  { src: light, alt: "THE LIGHT QUADRUPLE FOUNDATION" },
 ];
 
 const SponsorsSection = () => {

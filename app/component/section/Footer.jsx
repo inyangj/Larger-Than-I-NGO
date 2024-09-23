@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import {location, phone, mail} from "@/public/icons"
+import {location, phone, mail, insta, facebook} from "@/public/icons"
 
 const Footer = () => {
     const [redirectToDonate, setRedirectToDonate] = useState(false);
@@ -17,6 +17,21 @@ const Footer = () => {
          "noopener,noreferrer"
        );
      };
+
+       const handleFacebookClick = () => {
+         window.open(
+           "https://www.facebook.com/largerthani?mibextid=ZbWKwL",
+           "_blank",
+           "noopener,noreferrer"
+         );
+       };
+       const handleInstagramClick = () => {
+         window.open(
+           "https://www.instagram.com/largerthanifoundation?igsh=MWU0czJ0cnQzOTB2dQ==",
+           "_blank",
+           "noopener,noreferrer"
+         );
+       };
    const scrollToDonate = (e) => {
      e.preventDefault();
 
@@ -172,13 +187,40 @@ const Footer = () => {
             </li>
             <li className="flex items-center">
               <Image
-                src={mail}
-                alt="Email"
+                src={facebook}
+                alt="facebook"
                 width={24}
                 height={24}
                 className="mr-2"
               />
-              <span>Largerthanifoundation@gmail.com</span>
+              <span onClick={handleFacebookClick}>
+                Larger Than I Developmental Foundation
+              </span>
+            </li>
+            <li className="flex items-center">
+              <Image
+                src={insta}
+                alt="Instagram"
+                width={24}
+                height={24}
+                className="mr-2"
+              />
+              <span onClick={handleInstagramClick}>Largerthanifoundation</span>
+            </li>
+            <li className="flex items-center">
+              <a
+                href="mailto:Largerthanifoundation@gmail.com"
+                className="flex items-center"
+              >
+                <Image
+                  src={mail}
+                  alt="Email"
+                  width={24}
+                  height={24}
+                  className="mr-2"
+                />
+                <span>Largerthanifoundation@gmail.com</span>
+              </a>
             </li>
           </ul>
         </div>

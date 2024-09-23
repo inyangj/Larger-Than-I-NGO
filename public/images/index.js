@@ -19,5 +19,6 @@ import fidelia from "./fidelia.png";
 import izontimi from "./izontimi.png";
 import kemi from "./kemi.png";
 import member from "./member.png";
+import amaebi from "./Amaebi.jpg";
 
-export {banner, banner2, img1, img2, img3, img4, img5, img6, img7, betty, chiefson, dokun, doubra, elizabeth, favour, fidelia, izontimi, kemi, member, design1, design2};
+export {banner, banner2, img1, img2, img3, img4, img5, img6, img7, betty, chiefson, dokun, doubra, elizabeth, favour, fidelia, izontimi, kemi, amaebi, member, design1, design2};

@@ -21,8 +21,11 @@ import svcc from "./svcc.svg";
 import tvc from "./tvc.svg";
 import uni from "./uni.svg";
 import logo from "./logo.svg";
+import light from "./light.svg";
+import insta from "./insta.svg";
+import facebook from "./facebook.svg";
 
 
 
 
-export { location, donate, mail, menu, phone, sponsor, volunteer, close, pin, advocate, arise, down, fed, glory, intervene, nta, prevent, rhythm, sterling, svcc, tvc, uni, logo };
+export { location, donate, mail, menu, phone, sponsor, volunteer, close, pin, advocate, arise, down, fed, glory, intervene, nta, prevent, rhythm, sterling, svcc, tvc, uni, logo, light, insta, facebook };

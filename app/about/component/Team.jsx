@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {kemi, chiefson, dokun, doubra, elizabeth, favour, fidelia, izontimi, member, betty} from "@/public/images"
+import {kemi, chiefson, dokun, doubra, elizabeth, favour, fidelia, izontimi, member, betty, amaebi} from "@/public/images"
 
 const teamMembers = [
   {
@@ -52,6 +52,11 @@ const teamMembers = [
     name: "Mr. Chiefson. I. Meindinyo",
     title: "Director, Monitoring & Evaluation",
     image: chiefson,
+  },
+  {
+    name: "Mr. Amaebi Desmond Oti, esq",
+    title: "Director, LEGAL SERVICES",
+    image: amaebi,
   },
 ];
 
