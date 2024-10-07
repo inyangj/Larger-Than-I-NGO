@@ -7,7 +7,7 @@ const request = () => {
 
   return axios.create({
     baseURL: process.env.NEXT_PUBLIC_BACK_END_URL,
-    headers,
+    // headers,
   });
 };
 
