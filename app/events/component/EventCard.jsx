@@ -9,7 +9,7 @@ import moment from "moment";
 const EventCard = ({ event }) => {
    const formattedDate = moment(event.startDate).format("MMMM D, YYYY");
   return (
-    <div className="shadow-slip  relative pb-4 max-w-xs md:max-w-sm h-[455px]">
+    <div className="shadow-slip  relative pb-4 max-w-xs md:max-w-sm h-[485px]">
       
         <Link href={`/events/${event.id}`} passHref >
           <Image
