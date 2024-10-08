@@ -1,7 +1,7 @@
 "use client";
 import Nav from "@/app/component/section/Nav";
 import EventCard from "../component/EventCard";
-import { fetchPastEvents } from "@/utils/fetch.js";
+import { fetchPastEvents } from "@/utils/fetch";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import EventCardSkeleton from "@/app/component/section/EventSkeleton";

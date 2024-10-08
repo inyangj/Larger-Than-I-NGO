@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { fetchImages } from "@/utils/fetch.js";
+import { fetchImages } from "@/utils/fetch";
 
 const GallerySection = () => {
   const [modalOpen, setModalOpen] = useState(false);
