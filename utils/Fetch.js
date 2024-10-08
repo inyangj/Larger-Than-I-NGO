@@ -1,18 +1,16 @@
-import axios from "@/utils/axios";
+import axios from '@/utils/axios';
 
 // Function to fetch upcoming events
 export const fetchUpcomingEvents = async () => {
-  const response = await axios.get("/events/upcoming-events");
+  const response = await axios.get('/events/upcoming-events');
   return response.data.doc;
 };
 
-
-// Function to fetch past events
+// Function  to fetch past events
 export const fetchPastEvents = async () => {
-  const response = await axios.get("/events/past-events");
+  const response = await axios.get('/events/past-events');
   return response.data.doc;
 };
-
 
 // Function to fetch Individual event
 export const fetchIndividualEvent = (eventId) => {
@@ -23,8 +21,7 @@ export const fetchIndividualEvent = (eventId) => {
 };
 
 // Function to fetch Gallery Images
-
 export const fetchImages = async () => {
-  const response = await axios.get("/images");
+  const response = await axios.get('/images');
   return Array.isArray(response.data.doc) ? response.data.doc : [];
 };
