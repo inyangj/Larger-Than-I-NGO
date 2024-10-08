@@ -6,7 +6,7 @@ export const fetchUpcomingEvents = async () => {
   return response.data.doc;
 };
 
-// Function to fetch past events
+// Function  to fetch past events
 export const fetchPastEvents = async () => {
   const response = await axios.get('/events/past-events');
   return response.data.doc;
