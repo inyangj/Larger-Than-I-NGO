@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { fetchImages } from "@/utils/fetch";
+import { fetchImages } from "@/utils/Fetch";
 
 const GallerySection = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,7 +20,7 @@ const GallerySection = () => {
   });
 
   const openModal = (index) => {
-    setCurrentImage(images[index].url); 
+    setCurrentImage(images[index].url);
     setCurrentIndex(index);
     setModalOpen(true);
   };
@@ -31,13 +31,13 @@ const GallerySection = () => {
 
   const nextImage = () => {
     const nextIndex = (currentIndex + 1) % images.length;
-    setCurrentImage(images[nextIndex].url); 
+    setCurrentImage(images[nextIndex].url);
     setCurrentIndex(nextIndex);
   };
 
   const prevImage = () => {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    setCurrentImage(images[prevIndex].url); 
+    setCurrentImage(images[prevIndex].url);
     setCurrentIndex(prevIndex);
   };
 
