@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Nav from "../component/section/Nav";
-import { fetchPastEvents, fetchUpcomingEvents } from "@/utils/Fetch";
+import { fetchPastEvents, fetchUpcomingEvents } from "@/utils/fetch.js";
 import { useQuery } from "@tanstack/react-query";
 import EventCarousel from "../component/section/Carousel";
 

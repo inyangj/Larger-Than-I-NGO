@@ -5,7 +5,7 @@ import Link from "next/link";
 import { pin } from "@/public/icons";
 import EventCarousel from "@/app/component/section/Carousel";
 import Nav from "@/app/component/section/Nav";
-import { fetchIndividualEvent, fetchUpcomingEvents } from "@/utils/Fetch";
+import { fetchIndividualEvent, fetchUpcomingEvents } from "@/utils/fetch.js";
 import { useQuery } from "@tanstack/react-query";
 import "react-loading-skeleton/dist/skeleton.css";
 import EventPageSkeleton from "@/app/component/section/IndividualLoader";
