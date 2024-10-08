@@ -1,7 +1,7 @@
 
 import "./globals.css";
 import Footer from "./component/section/Footer";
-import ClientLayout from "@/utils/wrapper";
+import ClientLayout from "@/utils/Wrapper";
 
 
 
