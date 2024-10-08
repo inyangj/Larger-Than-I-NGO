@@ -11,7 +11,7 @@ import HomeAbout from "./component/section/HomeAbout";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import GallerySection from "./component/section/Gallery";
-import { fetchUpcomingEvents } from "@/utils/fetch";
+import { fetchUpcomingEvents } from "@/utils/Fetch";
 
 const Home = () => {
   const {

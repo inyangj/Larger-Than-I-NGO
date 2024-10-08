@@ -4,7 +4,7 @@ import Nav from "@/app/component/section/Nav";
 import EventCard from "../component/EventCard";
 import React from "react";
 import EventCardSkeleton from "@/app/component/section/EventSkeleton";
-import { fetchUpcomingEvents } from "@/utils/fetch";
+import { fetchUpcomingEvents } from "@/utils/Fetch";
 import { useQuery } from "@tanstack/react-query";
 
 const UpcomingEvents = () => {
