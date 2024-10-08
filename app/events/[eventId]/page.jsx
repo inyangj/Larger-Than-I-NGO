@@ -5,7 +5,7 @@ import Link from "next/link";
 import { pin } from "@/public/icons";
 import EventCarousel from "@/app/component/section/Carousel";
 import Nav from "@/app/component/section/Nav";
-import { fetchIndividualEvent, fetchUpcomingEvents } from "@/utils/Fetch";
+import { fetchIndividualEvent, fetchUpcomingEvents } from "@/utils/fetch";
 import { useQuery } from "@tanstack/react-query";
 import "react-loading-skeleton/dist/skeleton.css";
 import EventPageSkeleton from "@/app/component/section/IndividualLoader";
@@ -16,39 +16,37 @@ import ImageSlide from "../component/ImageSlide";
 const EventPage = () => {
   const { eventId } = useParams();
 
-    const {
-      data: events,
-      error: err,
-      isLoading,
-    } = useQuery({
-      queryKey: ["events"],
-      queryFn: fetchUpcomingEvents,
-    });
+  const {
+    data: events,
+    error: err,
+    isLoading,
+  } = useQuery({
+    queryKey: ["events"],
+    queryFn: fetchUpcomingEvents,
+  });
 
-  
- const {
-   data: event,
-   error,
-   isLoading: loading,
- } = useQuery({
-   queryKey: ["individual-event", eventId],
-   queryFn: fetchIndividualEvent(eventId), 
- });
-    
-              
-              if (loading) {
-                return (
-                  <div>
-      <EventPageSkeleton />
+  const {
+    data: event,
+    error,
+    isLoading: loading,
+  } = useQuery({
+    queryKey: ["individual-event", eventId],
+    queryFn: fetchIndividualEvent(eventId),
+  });
+
+  if (loading) {
+    return (
+      <div>
+        <EventPageSkeleton />
       </div>
     );
   }
-  
+
   if (error) {
     return <p>Error fetching event: {error.message}</p>;
   }
   const formatDate = moment(event?.startDate).format("MMMM D, YYYY");
-  
+
   return (
     <div>
       <Nav />
@@ -93,7 +91,7 @@ const EventPage = () => {
               <Link href="/events/upcoming-events">See All</Link>
             </p>
           </div>
-          <EventCarousel events={events} error={err} loading={isLoading}  />
+          <EventCarousel events={events} error={err} loading={isLoading} />
         </section>
       </section>
     </div>

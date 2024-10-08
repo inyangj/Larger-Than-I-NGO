@@ -3,14 +3,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { fetchImages } from "@/utils/Fetch"; 
+import { fetchImages } from "@/utils/fetch";
 
 const GallerySection = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState("");
+  const [currentImage, setCurrentImage] = useState(""); // Stores the URL string
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  
   const {
     data: images = [],
     isLoading,
@@ -21,7 +20,7 @@ const GallerySection = () => {
   });
 
   const openModal = (index) => {
-    setCurrentImage(images[index]);
+    setCurrentImage(images[index].url); 
     setCurrentIndex(index);
     setModalOpen(true);
   };
@@ -32,17 +31,17 @@ const GallerySection = () => {
 
   const nextImage = () => {
     const nextIndex = (currentIndex + 1) % images.length;
-    setCurrentImage(images[nextIndex]);
+    setCurrentImage(images[nextIndex].url); 
     setCurrentIndex(nextIndex);
   };
 
   const prevImage = () => {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    setCurrentImage(images[prevIndex]);
+    setCurrentImage(images[prevIndex].url); 
     setCurrentIndex(prevIndex);
   };
 
-  const skeletonArray = new Array(8).fill(0); 
+  const skeletonArray = new Array(8).fill(0);
 
   if (isLoading) {
     return (
@@ -124,21 +123,21 @@ const GallerySection = () => {
       </div>
       {modalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <div className="relative">
+          <div className="relative w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] max-w-[800px] mx-auto">
             <button
-              className="absolute top-2 right-2 text-black font-bold text-3xl"
+              className="absolute top-2 right-2 text-gray-400 font-bold text-3xl sm:text-4xl md:text-5xl"
               onClick={closeModal}
             >
               &times;
             </button>
             <button
-              className="absolute top-1/2 -left-7 text-white font-bold text-5xl"
+              className="absolute top-1/2 left-4 sm:-left-10 text-gray-400 md:text-white font-bold text-4xl md:text-5xl"
               onClick={prevImage}
             >
               &lt;
             </button>
             <button
-              className="absolute top-1/2 -right-7 text-white font-bold text-5xl"
+              className="absolute top-1/2 right-4 sm:-right-10 text-gray-400 md:text-white font-bold text-4xl md:text-5xl"
               onClick={nextImage}
             >
               &gt;
@@ -146,7 +145,13 @@ const GallerySection = () => {
             <Image
               src={currentImage}
               alt="Full View"
-              className="object-contain max-w-full max-h-full"
+              width={800}
+              height={600}
+              className="object-contain"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
             />
           </div>
         </div>

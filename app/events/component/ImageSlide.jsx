@@ -36,7 +36,6 @@ const ImageSlide = ({ galleryImages }) => {
       className="space-y-4 pt-36 md:pt-28 pb-16 md:pb-20"
       id="gallery-section"
     >
-      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:px-[57px] xl:px-0 lg:grid-cols-3 xl:grid-cols-4 px-4 gap-4 justify-center items-center">
         {galleryImages.map((image, index) => (
           <div
@@ -56,21 +55,21 @@ const ImageSlide = ({ galleryImages }) => {
       </div>
       {modalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-          <div className="relative">
+          <div className="relative w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] max-w-[800px] mx-auto">
             <button
-              className="absolute top-2 right-2 text-white text-2xl"
+              className="absolute top-2 right-2 text-black text-4xl"
               onClick={closeModal}
             >
               &times;
             </button>
             <button
-              className="absolute top-1/2 left-4 text-white text-2xl"
+              className="absolute top-1/2 left-4 sm:-left-10 text-gray-400 md:text-white font-bold text-4xl md:text-5xl"
               onClick={prevImage}
             >
               &lt;
             </button>
             <button
-              className="absolute top-1/2 right-4 text-white text-2xl"
+              className="absolute top-1/2 right-4 sm:-right-10 text-gray-400 md:text-white font-bold text-4xl md:text-5xl"
               onClick={nextImage}
             >
               &gt;
@@ -78,9 +77,13 @@ const ImageSlide = ({ galleryImages }) => {
             <Image
               src={currentImage}
               alt="Full View"
-              className="object-contain max-w-full max-h-full"
-              width={800} 
-              height={600}
+              className="object-contain "
+              width={500}
+              height={400}
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
             />
           </div>
         </div>

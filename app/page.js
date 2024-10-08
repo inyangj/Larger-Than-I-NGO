@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
-import Nav from "@/app/component/section/Nav"; 
+import Nav from "@/app/component/section/Nav";
 import { donate, volunteer, sponsor } from "@/public/icons";
 // import { img1, img2, img3, img4, img5, img6, img7, banner2  } from "@/public/images";
-import { fetchUpcomingEvents } from "@/utils/Fetch";
 import { useQuery } from "@tanstack/react-query";
 import Button from "./component/element/Button";
 import EventCarousel from "./component/section/Carousel";
@@ -12,33 +11,34 @@ import HomeAbout from "./component/section/HomeAbout";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import GallerySection from "./component/section/Gallery";
+import { fetchUpcomingEvents } from "@/utils/fetch";
 
 const Home = () => {
-    const {
-      data: events,
-      error,
-      isLoading,
-    } = useQuery({
-      queryKey: ["up-events"],
-      queryFn: fetchUpcomingEvents,
-    });
+  const {
+    data: events,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["up-events"],
+    queryFn: fetchUpcomingEvents,
+  });
 
   //  const galleryImages = [img2, img3, img2, img1, img5, img4, img5, img7];
 
-    const handleVolunteerClick = () => {
-      window.open(
-        "https://docs.google.com/forms/d/e/1FAIpQLSdULR-9XA1BY8E8xKZiqTfGANTIpTlGLX7fP0X7Moo5LD2CgA/viewform?usp=sf_link",
-        "_blank",
-        "noopener,noreferrer"
-      );
-    };
-    const handleDonateClick = () => {
-      window.open(
-        "https://flutterwave.com/donate/amwwbhnwpjft",
-        "_blank",
-        "noopener,noreferrer"
-      );
-    };
+  const handleVolunteerClick = () => {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSdULR-9XA1BY8E8xKZiqTfGANTIpTlGLX7fP0X7Moo5LD2CgA/viewform?usp=sf_link",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+  const handleDonateClick = () => {
+    window.open(
+      "https://flutterwave.com/donate/amwwbhnwpjft",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   return (
     <div className="">
@@ -78,7 +78,8 @@ const Home = () => {
               Support our mission to bring hope and change lives through your
               generous donations.
             </p>
-            <Button  onClick={handleDonateClick}
+            <Button
+              onClick={handleDonateClick}
               className={` shadow-dark lg:text-lg xl:text-xl bg-white font-light hover:bg-opacity-70 `}
             >
               Donate Now
@@ -163,7 +164,12 @@ const Home = () => {
             Make A Donation Today
           </h2>
           <p>You can support a child today.</p>
-          <Button onClick={handleDonateClick} className={`bg-secondary hover:bg-opacity-50`}>Donate</Button>
+          <Button
+            onClick={handleDonateClick}
+            className={`bg-secondary hover:bg-opacity-50`}
+          >
+            Donate
+          </Button>
         </div>
       </section>
 
@@ -194,13 +200,18 @@ const Home = () => {
         </div>
 
       </section> */}
-        <GallerySection />
+      <GallerySection />
       <section className="px-4 py-8 md:px-14 lg:px-36">
         <div className=" flex gap-4 items-center justify-end mb-8">
           <h2 className="md:text-xl md:font-bold font-medium">Events</h2>
           <div className="w-16 h-0 border-secondary border-2"></div>
         </div>
-        <EventCarousel head={"Our Latest Events"} events={events} loading={isLoading} error={error} />
+        <EventCarousel
+          head={"Our Latest Events"}
+          events={events}
+          loading={isLoading}
+          error={error}
+        />
       </section>
 
       {/* Volunteer Section */}
@@ -213,7 +224,10 @@ const Home = () => {
             cause? Do you want to make a positive impact o your community? We’re
             always looking for volunteers to help us
           </p>
-          <Button onClick={handleVolunteerClick} className={`bg-primary hover:bg-opacity-50`}>
+          <Button
+            onClick={handleVolunteerClick}
+            className={`bg-primary hover:bg-opacity-50`}
+          >
             Volunteer
           </Button>
         </div>
