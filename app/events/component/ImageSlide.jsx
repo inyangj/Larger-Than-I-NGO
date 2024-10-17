@@ -57,7 +57,7 @@ const ImageSlide = ({ galleryImages }) => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
           <div className="relative w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] max-w-[800px] mx-auto">
             <button
-              className="absolute top-2 right-2 text-black text-4xl"
+              className="absolute top-2 right-2 text-white text-4xl"
               onClick={closeModal}
             >
               &times;
@@ -82,7 +82,7 @@ const ImageSlide = ({ galleryImages }) => {
               height={400}
               style={{
                 width: "100%",
-                height: "auto",
+                height: "600px",
               }}
             />
           </div>

@@ -51,12 +51,12 @@ const EventPage = () => {
     <div>
       <Nav />
       <section className="mx-7 md:mx-9 mt-10 md:mt-20">
-        <div>
+        <div className="lg:h-[392px] md:h-72 w-[370px] md:w-[500px] lg:w-[600px] ">
           <Image
             src={event.cover}
             alt={event.title}
             className="lg:h-[372px] md:h-72 "
-            width={800}
+            width={600}
             height={500}
           />
         </div>
