@@ -1,6 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { Image as AntImage } from "antd";
 import Link from "next/link";
 import { pin } from "@/public/icons";
 import EventCarousel from "@/app/component/section/Carousel";
@@ -51,13 +52,14 @@ const EventPage = () => {
     <div>
       <Nav />
       <section className="mx-7 md:mx-9 mt-10 md:mt-20">
-        <div className="lg:h-[392px] md:h-72 w-[370px] md:w-[500px] lg:w-[600px] ">
-          <Image
+        <div className="lg:h-[392px] md:h-72 w-[370px] md:w-[500px] lg:w-[600px]">
+          <AntImage
             src={event.cover}
             alt={event.title}
-            className="lg:h-[372px] md:h-72 "
+            className="lg:h-[372px] md:h-72"
             width={600}
             height={500}
+            style={{ objectFit: "cover" }} 
           />
         </div>
         <div className="px-3 mx-9 pt-4 bg-white relative -top-10 md:w-[432px]">

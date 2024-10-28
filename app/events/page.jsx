@@ -31,9 +31,11 @@ const Upcoming = () => {
       <section className="mx-5 md:mx-9 lg:mx-[100px] mt-10 md:mt-20 mb-8 md:mb-16">
         <div className="flex justify-between items-center">
           <h3 className="font-medium text-3xl">Upcoming Events</h3>
-          <p className="text-light-green text-xl">
-            <Link href="/events/upcoming-events">See All</Link>
-          </p>
+          {events?.length > 0 && (
+            <p className="text-light-green text-xl">
+              <Link href="/events/upcoming-events">See All</Link>
+            </p>
+          )}
         </div>
         <EventCarousel events={events} loading={isLoading} error={error} />
       </section>
@@ -42,9 +44,11 @@ const Upcoming = () => {
       <section className="mx-5 md:mx-9 lg:mx-[100px] mt-20 md:mt-36 mb-16 md:mb-32">
         <div className="flex justify-between items-center">
           <h3 className="font-medium text-3xl">Past Events</h3>
-          <p className="text-light-green text-xl">
-            <Link href="/events/past-events">See All</Link>
-          </p>
+          {pasts?.length > 0 && (
+            <p className="text-light-green text-xl">
+              <Link href="/events/past-events">See All</Link>
+            </p>
+          )}
         </div>
         <EventCarousel events={pasts} loading={loading} error={err} />
       </section>
